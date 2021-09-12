@@ -28,29 +28,34 @@ int lib_test2(int limit){
 	
 	int a,c, sum_ab, sum_cd;
 	std::pair<int,int> ab, cd;
-	
-	for(int N = 4; N <= limit; N+=2){
+	int count = 0;
+	for(int N = 2; N <= limit; N+=1){
+		//printf("N=%d\n",N);
 		a = (int)std::trunc(std::sqrt(N));
 		while(((N % a) != 0)and(a > 1)) a -= 1;
 		ab = {a, N/a};
-		// printf("N: %d  ab:{%d,%d}\n", N, ab.first, ab.second);
+		cd = {0,0};
+		//printf("Start config: N: %d  ab:{%d,%d}\n", N, ab.first, ab.second);
 		// We assume ab is set correctly
 		sum_ab = ab.first+ab.second+1;
 		do{
-			if(a > 1){
-				c = a - 1;
-				while(((N % c) != 0)and(c > 1)) c -= 1;
-				cd = {c, N/c};
+			//printf("Debug N: %d  ab:{%d,%d}  cd:{%d,%d}\n", N, ab.first, ab.second, cd.first, cd.second);
+			if(ab.first > 1){
+				cd.first = ab.first - 1;
+				while(((N % cd.first) != 0)and(cd.first > 1)) cd.first -= 1;
+				cd.second = N/cd.first;
 				sum_cd = cd.first+cd.second;
-				if(sum_ab == sum_cd)
+				if(sum_ab == sum_cd){
 					printf("N: %d  ab:{%d,%d}  cd:{%d,%d}\n", N, ab.first, ab.second, cd.first, cd.second);
+					count++;
+					break;
+				}
 			}
 			ab = cd;
 			cd = {0,0};
-		} while(a > 1);
-		printf("\n");
+		} while(ab.first > 1);
 	}
-	return 0;
+	return count;
 }
 
 //----------------------------------------------------------------------
