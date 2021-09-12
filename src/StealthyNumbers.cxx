@@ -14,9 +14,13 @@
 
 int main(int argc, char **argv)
 {
-	const int N = 1000000;
-	int count = lib_test1(N);
-	printf("lib_test1(%d) => %d\n",N, count);
+	const int N = 1000;
+	int count = lib_test2(N);
+	printf("lib_test2(%d) => %d\n",N, count);
+	printf("\n==========\n");
+	//count = ex_search(100);
+	//printf("ex_search(%d) => %d\n",N, count);
+	
 	return 0;
 }
 

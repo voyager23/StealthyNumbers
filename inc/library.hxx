@@ -12,6 +12,8 @@
 	
 	// Declarations, typedefs, enum, defines
 	int lib_test1(int limit);
+	int ex_search(int limit);
+	int lib_test2(int limit);
 
 #endif
 
