@@ -24,6 +24,24 @@
 
 #include "../inc/library.hxx"
 
+int blue_sky1(std::vector<int> &n,int limit){	// research function
+	/* For a given pair a & b, 
+	 * d = a/2 and c = 2b is not true for {36,72}
+	 */
+	n.clear();
+	for(int a = limit; a > 1; a -= 2){
+		for(int b = a; b > 1; b -= 1){
+			int d = a/2;
+			int c = 2*b;
+			if(((a*b)==(c*d))and((a+b)==(c+d+1))) {
+				n.push_back(a*b);
+				//printf("Possible soln: %d\n", (a*b));
+			}
+		}
+	}
+	return n.size();
+}
+
 int ex_search(std::vector<int> &n,int limit){
 	// exhaustive search, intended for testing
 	Vab dbase;	// internal use

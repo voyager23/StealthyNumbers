@@ -24,6 +24,8 @@
 	
 	int ex_search(std::vector<int> &n,int limit);
 	int lib_test3(std::vector<int> &n,int limit);
+	
+	int blue_sky1(std::vector<int> &n,int limit);	// research function
 
 #endif
 
