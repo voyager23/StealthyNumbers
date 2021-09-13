@@ -31,7 +31,7 @@ int ex_search(std::vector<int> &n,int limit){
 	int a;		// initial possible divisor
 	
 	n.clear();
-	for(int N = 2; N <= limit; N+=1){
+	for(int N = 4; N <= limit; N+=4){
 		dbase.clear();
 		a = (int)std::trunc(std::sqrt(N));
 		do{
@@ -60,7 +60,7 @@ int lib_test3(std::vector<int> &n,int limit){
 	std::pair<int,int> ab, cd;
 	int count = 0;
 	n.clear();
-	for(int N = 2; N <= limit; N+=1){
+	for(int N = 4; N <= limit; N+=4){
 		//printf("N=%d\n",N);
 		a = (int)std::trunc(std::sqrt(N));
 		while(((N % a) != 0)and(a > 1)) a -= 1;
