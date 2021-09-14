@@ -23,6 +23,9 @@ StealthyNumbers.o : StealthyNumbers.cxx $(HDRS)
 	
 library.o : library.cxx $(HDRS)
 	g++ -c $(CFLAGS) $< -o $(OUT)
+	
+solution : solution.cxx $(HDRS)
+	g++ -c $(CFLAGS) $< -o ../bin/soln
 
 # ----------------------------------------------------------------------
 
